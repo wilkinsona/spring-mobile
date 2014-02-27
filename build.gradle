@@ -1,5 +1,5 @@
 buildscript {
-	repositories {  
+	repositories {
 		maven { url "http://repo.spring.io/plugins-release" }
 	}
 	dependencies {
@@ -11,7 +11,7 @@ buildscript {
 configure(allprojects) {
 	group = "org.springframework.mobile"
 
-	ext.springVersion         = "3.2.8.RELEASE"
+	ext.springVersion         = "4.0.3.DEPENDENCIES"
 	ext.springReleaseVersion  = "latest.release"
 	ext.springSnapshotVersion = "latest.integration"
 	ext.junitVersion          = "4.11"
@@ -62,6 +62,7 @@ configure(allprojects) {
 	test.systemProperty("java.awt.headless", "true")
 
 	repositories {
+		mavenLocal()
 		maven { url "http://repo.spring.io/libs-snapshot" }
 	}
 
@@ -125,7 +126,7 @@ configure(subprojects) { subproject ->
 		archives javadocJar
 	}
 
-	configurations { 
+	configurations {
 		springReleaseTestRuntime.extendsFrom testRuntime
 		springSnapshotTestRuntime.extendsFrom testRuntime
 	}
